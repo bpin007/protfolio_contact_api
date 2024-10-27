@@ -22,26 +22,18 @@ const sendEmail = async (options) => {
 
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: options.receiver,
+    to: options.email,
     subject: options.subject,
     text: options.message,
-    html: options.html,
   };
 
   await transporter.sendMail(mailOptions);
-  console.log("Mail options:", mailOptions);
 };
 
 app.post("/send-email", async (req, res) => {
   try {
-    const { email, subject, message, name, receiver } = req.body;
-    await sendEmail({
-      email: receiver,
-      subject,
-      message,
-      name,
-      html: req.body.html,
-    });
+    const { email, subject, message, name } = req.body;
+    await sendEmail({ email, subject, message, name });
     res.status(200).send({ message: "Email sent successfully" });
   } catch (error) {
     console.error("Error sending email:", error);
