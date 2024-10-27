@@ -75,7 +75,7 @@ const sendEmailToUser = async (options) => {
       </p>
       <p>Looking forward to sharing valuable content with you!</p>
       <p>Best regards,</p>
-      <p>Your Name</p>
+      <p>Bipin</p>
     </div>
   `,
   };
