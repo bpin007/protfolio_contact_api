@@ -29,12 +29,19 @@ const sendEmail = async (options) => {
   };
 
   await transporter.sendMail(mailOptions);
+  console.log("Mail options:", mailOptions);
 };
 
 app.post("/send-email", async (req, res) => {
   try {
-    const { email, subject, message, name } = req.body;
-    await sendEmail({ email, subject, message, name });
+    const { email, subject, message, name, receiver } = req.body;
+    await sendEmail({
+      email: receiver,
+      subject,
+      message,
+      name,
+      html: req.body.html,
+    });
     res.status(200).send({ message: "Email sent successfully" });
   } catch (error) {
     console.error("Error sending email:", error);
