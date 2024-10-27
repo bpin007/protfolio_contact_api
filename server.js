@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const nodemailer = require("nodemailer");
 
-const PORT = 5000;
+const PORT = process.env.EMAIL_PORT;
 const app = express();
 
 app.use(express.json());
