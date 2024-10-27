@@ -1,11 +1,13 @@
 require("dotenv").config();
 const express = require("express");
 const nodemailer = require("nodemailer");
+const cors = require("cors");
 
 const PORT = 5000;
 const app = express();
 
 app.use(express.json());
+app.use(cors("*"));
 
 const sendEmail = async (options) => {
   const transporter = nodemailer.createTransport({
