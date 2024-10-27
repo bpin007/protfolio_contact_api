@@ -21,8 +21,8 @@ const sendEmail = async (options) => {
   });
 
   const mailOptions = {
-    from: process.env.EMAIL_USER,
-    to: options.email,
+    from: options.email,
+    to: process.env.EMAIL_USER,
     subject: options.subject,
     text: options.message,
   };
