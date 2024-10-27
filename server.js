@@ -22,9 +22,10 @@ const sendEmail = async (options) => {
 
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: options.email,
+    to: options.receiver,
     subject: options.subject,
     text: options.message,
+    html: options.html,
   };
 
   await transporter.sendMail(mailOptions);
