@@ -44,7 +44,7 @@ const sendEmailToUser = async (options) => {
   });
 
   const mailOptionsTwo = {
-    to: options.email && process.env.EMAIL_USER,
+    to: options.email,
     from: process.env.EMAIL_USER,
     subject: "Thanks for Subscribing!",
     html: `
